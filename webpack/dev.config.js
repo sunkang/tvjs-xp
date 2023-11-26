@@ -31,7 +31,7 @@ module.exports = {
             template: './src/index.html'
         }),
         new ImportPlugin(
-            'http://localhost:8080/trading-vue.js',
+            'http://localhost:8091/trading-vue.js',
             './node_modules/trading-vue-js/dist'
         )
     ]
