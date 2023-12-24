@@ -46,6 +46,7 @@ export default {
             this.width = window.innerWidth
             this.height = window.innerHeight - this.top
         },
+        //网页加载时的网址路径参数解析
         win_query() {
             let qs = (function(a) {
                 if (a == "") return {};
@@ -65,6 +66,8 @@ export default {
             let sub = Object.keys(state).filter(x => state[x])
             this.extensions = sub.map(x => Extensions[x])
             this.resetkey++
+            console.log(this.resetkey)
+            console.log(this.extensions)
         },
         onselect(id) {
             this.current = id
@@ -72,6 +75,7 @@ export default {
     },
     mounted() {
         window.addEventListener('resize', this.onResize)
+        //解析网址路径参数，nm：背景，ov：app-1、app-2，header
         let q = this.win_query()
         if (q.nm === 'false') this.night = false
         if (q.ov) this.current = q.ov
@@ -100,8 +104,8 @@ export default {
     },
     computed: {
         current_app() {
-            return this.apps.find(
-                x => x.id === this.current).comp
+            console.log(this.current)
+            return this.apps.find(x => x.id === this.current).comp
         }
     }
 }
